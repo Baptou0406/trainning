@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Workout Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__top">
+      <h1>Workout Tracker</h1>
+      <button id="resetAllBtn" class="btn btn--ghost" title="Réinitialiser toutes les charges">Reset</button>
+    </div>
+
+    <div class="controls">
+      <label class="field">
+        <span>Séance</span>
+        <select id="workoutSelect"></select>
+      </label>
+
+      <div class="row">
+        <button id="startWorkoutBtn" class="btn">Démarrer séance</button>
+        <button id="endWorkoutBtn" class="btn btn--danger" disabled>Terminer</button>
+      </div>
+    </div>
+
+    <div class="timers">
+      <div class="timerCard">
+        <div class="timerTitle">Chrono séance</div>
+        <div class="timerValue" id="workoutTimer">00:00:00</div>
+      </div>
+
+      <div class="timerCard">
+        <div class="timerTitle">Repos</div>
+        <div class="timerValue" id="restTimer">00:00</div>
+        <div class="row">
+          <button class="btn btn--small" data-rest="60">60s</button>
+          <button class="btn btn--small" data-rest="90">90s</button>
+          <button class="btn btn--small" data-rest="120">120s</button>
+          <button id="restStopBtn" class="btn btn--small btn--ghost">Stop</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="hint">
+      <b>Astuce :</b> tu modifies tes charges ici, ça se sauvegarde automatiquement sur ton téléphone.
+    </div>
+
+    <section id="exerciseList" class="list"></section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__left">
+      <span class="badge" id="saveStatus">Sauvegarde : OK</span>
+    </div>
+    <div class="footer__right">
+      <button id="exportBtn" class="btn btn--ghost">Exporter JSON</button>
+      <label class="btn btn--ghost fileLabel">
+        Importer JSON
+        <input id="importInput" type="file" accept="application/json" />
+      </label>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
